@@ -3,14 +3,20 @@
  */
 public class Main {
 
-    public static final String FILE_GRAMATICA = "C:\\Users\\Lucian\\Google Drive\\Computer Science\\Lab6_LFTC\\input\\gramatica.txt";
+    public static final String FILE_GRAMATICA = "input/gramatica.txt";
 
     public static void main(String[] args) {
 
         Loader loader = new Loader(FILE_GRAMATICA);
-        AnalizorSintactic analizorSintactic = new AnalizorSintactic(loader);
 
-        if (analizorSintactic.verificaSecventa())
-            System.out.println("Secventa acceptata");
+        AnalizorSintactic analizorSintactic = new AnalizorSintactic(loader);
+        try {
+            System.out.println(analizorSintactic.verificaSecventa());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            System.out.println(analizorSintactic.getListaDescendenti());
+        }
+
     }
 }

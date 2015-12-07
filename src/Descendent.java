@@ -26,7 +26,7 @@ public class Descendent {
                 ", pozitiaInSecventa='" + pozitiaInSecventa + '\'' +
                 ", stivaDeLucru='" + stivaDeLucru + '\'' +
                 ", bandaDeIntrare='" + bandaDeIntrare + '\'' +
-                '}';
+                '}' + "\n";
     }
 
     public void setStareaAutomatului(String stareaAutomatului) {
