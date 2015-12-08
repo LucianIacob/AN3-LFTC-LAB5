@@ -1,15 +1,9 @@
-import sun.security.krb5.internal.crypto.Des;
-
 import java.util.ArrayList;
 
 /**
- * Created by Lucian on 24.11.2015.
+ * Created with love by Lucian on 24.11.2015.
  */
 public class AnalizorSintactic {
-
-    public ArrayList<Descendent> getListaDescendenti() {
-        return listaDescendenti;
-    }
 
     private ArrayList<Descendent> listaDescendenti;
     private Loader loader;
@@ -17,7 +11,6 @@ public class AnalizorSintactic {
     private static final String EBSILON = "Ebsilon";
     private static final String STARE_NORMALA = "q";
     private static final String STARE_REVENIRE = "r";
-    private static final String STARE_TERMINARE = "t";
 
     public AnalizorSintactic(Loader loader) {
         this.loader = loader;
@@ -26,12 +19,6 @@ public class AnalizorSintactic {
     }
 
     public boolean treeSearch(Node<Descendent> currentNode) {
-
-        //verificam daca incepe cu S atunci parcurgem regulile de proiductie din gramatica
-        //altfel verificam daca primul caracter de pe banda de intrare e ok cu secventa
-        //daca e ok generam primul fiu si mergem pe el
-        //altfel revenim la urmatorul fiu al parintelui, in cazul in care nu mai sunt fi la urmatorul fiu al bunicului s.a.m.d.
-        //daca e epsilon verificam daca contorul secventei e egal cu n+1 lungimea secventei atuncie ok altfel nu e ok
 
         Descendent currentData = currentNode.getData();
         if (currentData.getPozitiaInSecventa() == loader.getSecventa().length()) {
@@ -50,7 +37,6 @@ public class AnalizorSintactic {
                 }
             }
         } else if (currentData.getBandaDeIntrare().substring(0, 1).equals("S")) {
-
             if (currentNode.getChildren().size() < gramatica.size()) {
                 Node<Descendent> descendentNode = new Node<>(new Descendent(STARE_NORMALA,
                         currentData.getPozitiaInSecventa(),
@@ -65,6 +51,7 @@ public class AnalizorSintactic {
                 return treeSearch(descendentNode);
             } else {
                 if (!currentNode.getData().getStivaDeLucru().equals(EBSILON)) {
+                    currentNode.getParent().getData().setStareaAutomatului(STARE_REVENIRE);
                     return treeSearch(currentNode.getParent());
                 } else {
                     return false;
@@ -74,7 +61,6 @@ public class AnalizorSintactic {
             if (currentData.getStareaAutomatului().equals(STARE_REVENIRE)) {
                 currentNode.getParent().getData().setStareaAutomatului(STARE_REVENIRE);
                 return treeSearch(currentNode.getParent());
-
             } else {
                 if (loader.getSecventa().substring(currentData.getPozitiaInSecventa(), currentData.getPozitiaInSecventa() + 1).
                         equals(currentData.getBandaDeIntrare().substring(0, 1))) {
@@ -102,11 +88,23 @@ public class AnalizorSintactic {
         }
     }
 
-
-    public boolean verificaSecventa() {
+    public boolean secventaIsValida() {
         Descendent firstDescendent = new Descendent(STARE_NORMALA, 0, EBSILON, "S");
         Node<Descendent> root = new Node<>(firstDescendent);
         listaDescendenti.add(firstDescendent);
         return treeSearch(root);
+    }
+
+    public void printArboreleDeAnaliza() {
+        Descendent descendent = listaDescendenti.get(listaDescendenti.size() - 1);
+        String stivaDeLucru = descendent.getStivaDeLucru();
+        stivaDeLucru = stivaDeLucru.substring(7);
+        stivaDeLucru = stivaDeLucru.replaceAll("[a-z]", "");
+
+        System.out.println("Arborele de analiza sintactica pentru secventa data:");
+        for (int contorGramatica = 1; contorGramatica < stivaDeLucru.length(); contorGramatica += 2) {
+            int index = Integer.parseInt(stivaDeLucru.substring(contorGramatica, contorGramatica + 1));
+            System.out.println(gramatica.get(index).getLeftHand().substring(0, 1) + " -> " + gramatica.get(index).getRightHand());
+        }
     }
 }

@@ -1,5 +1,5 @@
 /**
- * Created by Lucian on 24.11.2015.
+ * Created with love by Lucian on 24.11.2015.
  */
 public class RegulaProductie {
 
@@ -26,8 +26,7 @@ public class RegulaProductie {
 
         RegulaProductie that = (RegulaProductie) o;
 
-        if (leftHand != null ? !leftHand.equals(that.leftHand) : that.leftHand != null) return false;
-        return !(rightHand != null ? !rightHand.equals(that.rightHand) : that.rightHand != null);
+        return !(leftHand != null ? !leftHand.equals(that.leftHand) : that.leftHand != null) && !(rightHand != null ? !rightHand.equals(that.rightHand) : that.rightHand != null);
 
     }
 

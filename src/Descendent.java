@@ -1,5 +1,5 @@
 /**
- * Created by Lucian on 24.11.2015.
+ * Created with love by Lucian and @Pi on 24.11.2015.
  */
 public class Descendent {
 
@@ -37,23 +37,12 @@ public class Descendent {
         return pozitiaInSecventa;
     }
 
-    public void setPozitiaInSecventa(int pozitiaInSecventa) {
-        this.pozitiaInSecventa = pozitiaInSecventa;
-    }
-
     public String getStivaDeLucru() {
         return stivaDeLucru;
-    }
-
-    public void setStivaDeLucru(String stivaDeLucru) {
-        this.stivaDeLucru = stivaDeLucru;
     }
 
     public String getBandaDeIntrare() {
         return bandaDeIntrare;
     }
 
-    public void setBandaDeIntrare(String bandaDeIntrare) {
-        this.bandaDeIntrare = bandaDeIntrare;
-    }
 }

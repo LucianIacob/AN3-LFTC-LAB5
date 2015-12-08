@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- * Created by Lucian on 24.11.2015.
+ * Created with love by Lucian and @Pi on 24.11.2015.
  */
 public class Gramatica {
 

@@ -1,5 +1,6 @@
+
 /**
- * Created by Lucian on 24.11.2015.
+ * Created with love by Lucian and @Pi on 24.11.2015.
  */
 public class Main {
 
@@ -8,15 +9,20 @@ public class Main {
     public static void main(String[] args) {
 
         Loader loader = new Loader(FILE_GRAMATICA);
-
         AnalizorSintactic analizorSintactic = new AnalizorSintactic(loader);
+
         try {
-            System.out.println(analizorSintactic.verificaSecventa());
+            if (analizorSintactic.secventaIsValida()) {
+                //System.out.println(analizorSintactic.getListaDescendenti());
+                System.out.println();
+                System.out.println("Secventa este acceptata.");
+                analizorSintactic.printArboreleDeAnaliza();
+            } else {
+                System.out.println();
+                System.out.println("Secventa nu este acceptata.");
+            }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-        } finally {
-            System.out.println(analizorSintactic.getListaDescendenti());
         }
-
     }
 }

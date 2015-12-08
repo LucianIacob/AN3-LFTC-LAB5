@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Created by Lucian on 24.11.2015.
+ * Created with love by Lucian on 24.11.2015.
  */
 public class Loader {
 
@@ -39,7 +39,7 @@ public class Loader {
 
     private void parseLine(String line) {
         String[] words = line.split(" ");
-        if (!words[0].equals(null) && !words[1].equals(null)) {
+        if (!words[0].equals("") && !words[1].equals("")) {
             gramatica.addRegulaProductie(new RegulaProductie(words[0], words[1]));
         }
     }
