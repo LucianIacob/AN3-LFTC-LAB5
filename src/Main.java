@@ -2,9 +2,9 @@
 /**
  * Created with love by Lucian and @Pi on 24.11.2015.
  */
-public class Main {
+class Main {
 
-    public static final String FILE_GRAMATICA = "input/gramatica.txt";
+    private static final String FILE_GRAMATICA = "input/gramatica.txt";
 
     public static void main(String[] args) {
 

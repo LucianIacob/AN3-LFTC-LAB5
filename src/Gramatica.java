@@ -3,9 +3,9 @@ import java.util.ArrayList;
 /**
  * Created with love by Lucian and @Pi on 24.11.2015.
  */
-public class Gramatica {
+class Gramatica {
 
-    private ArrayList<RegulaProductie> gramatica;
+    private final ArrayList<RegulaProductie> gramatica;
 
     public Gramatica() {
         gramatica = new ArrayList<>();

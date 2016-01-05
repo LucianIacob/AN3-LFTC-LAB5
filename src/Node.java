@@ -5,7 +5,7 @@ import java.util.List;
  * Created with love by Lucian and @Pi on 04.12.2015.
  */
 public class Node<T> {
-    private List<Node<T>> children = new ArrayList<>();
+    private final List<Node<T>> children = new ArrayList<>();
     private Node<T> parent = null;
     private T data = null;
 

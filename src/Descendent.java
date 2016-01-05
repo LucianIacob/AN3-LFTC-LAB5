@@ -1,12 +1,12 @@
 /**
  * Created with love by Lucian and @Pi on 24.11.2015.
  */
-public class Descendent {
+class Descendent {
 
     private String stareaAutomatului;
-    private int pozitiaInSecventa;
-    private String stivaDeLucru;
-    private String bandaDeIntrare;
+    private final int pozitiaInSecventa;
+    private final String stivaDeLucru;
+    private final String bandaDeIntrare;
 
     public Descendent(String stareaAutomatului, int pozitiaInSecventa, String stivaDeLucru, String bandaDeIntrare) {
         this.stareaAutomatului = stareaAutomatului;
@@ -29,7 +29,7 @@ public class Descendent {
                 '}' + "\n";
     }
 
-    public void setStareaAutomatului(String stareaAutomatului) {
+    public void setStareaAutomatului(@SuppressWarnings("SameParameterValue") String stareaAutomatului) {
         this.stareaAutomatului = stareaAutomatului;
     }
 
