@@ -4,10 +4,10 @@ import java.util.*;
 /**
  * Created with love by Lucian on 24.11.2015.
  */
-public class Loader {
+class Loader {
 
     private String secventa;
-    private Gramatica gramatica;
+    private final Gramatica gramatica;
 
     public String getSecventa() {
         return secventa;
@@ -17,13 +17,13 @@ public class Loader {
         return gramatica.getGramatica();
     }
 
-    public Loader(String fileName) {
+    public Loader(@SuppressWarnings("SameParameterValue") String FILE_GRAMATICA) {
         gramatica = new Gramatica();
-        readFromFile(fileName);
+        readFromFile(FILE_GRAMATICA);
         readSecventa();
     }
 
-    public void readFromFile(String fileName) {
+    private void readFromFile(String fileName) {
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
             String line;
@@ -44,7 +44,7 @@ public class Loader {
         }
     }
 
-    public void readSecventa() {
+    private void readSecventa() {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Dati secventa: ");
         try {

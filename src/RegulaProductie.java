@@ -1,10 +1,10 @@
 /**
  * Created with love by Lucian on 24.11.2015.
  */
-public class RegulaProductie {
+class RegulaProductie {
 
-    private String leftHand;
-    private String rightHand;
+    private final String leftHand;
+    private final String rightHand;
 
     public RegulaProductie(String leftHand, String rightHand) {
         this.leftHand = leftHand;

@@ -3,11 +3,11 @@ import java.util.ArrayList;
 /**
  * Created with love by Lucian on 24.11.2015.
  */
-public class AnalizorSintactic {
+class AnalizorSintactic {
 
-    private ArrayList<Descendent> listaDescendenti;
-    private Loader loader;
-    private ArrayList<RegulaProductie> gramatica;
+    private final ArrayList<Descendent> listaDescendenti;
+    private final Loader loader;
+    private final ArrayList<RegulaProductie> gramatica;
     private static final String EBSILON = "Ebsilon";
     private static final String STARE_NORMALA = "q";
     private static final String STARE_REVENIRE = "r";
@@ -18,7 +18,7 @@ public class AnalizorSintactic {
         listaDescendenti = new ArrayList<>();
     }
 
-    public boolean treeSearch(Node<Descendent> currentNode) {
+    private boolean treeSearch(Node<Descendent> currentNode) {
 
         Descendent currentData = currentNode.getData();
         if (currentData.getPozitiaInSecventa() == loader.getSecventa().length()) {
